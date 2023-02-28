@@ -1,0 +1,16 @@
+let Targeting = getTargetingService()
+    Targeting.Filters.all()
+    Targeting.Filters.enemiesOf( Context.caster )
+    Targeting.Actions.random( 1 )
+
+let targets = Targeting.get()
+
+    Targeting.Filters.all()
+    Targeting.Filters.enemiesOf( Context.caster )
+    Targeting.Filters.random( 1 )
+
+let otherTargets = Targeting.get()
+
+let Effects = getEffectsService()
+    Effects.damage( targets, Context.values.damage )
+    Effects.damage( otherTargets, Context.values.damage * 2 )
